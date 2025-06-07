@@ -1,3 +1,0 @@
-base_python_image : contains a fresh installation of python with most of the tools needed to install other python packages
-python_image_with_dependencies : shows how to install python packages on the base_python_image to create a new image
-python_application_image : shows how to create an executable using the python_image_with_dependencies
