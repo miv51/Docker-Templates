@@ -10,6 +10,7 @@ services:
       POSTGRES_DB: database # define the name of the database that your application will use
     volumes:
       - database_volume:/var/lib/postgresql/data # Mount the named volume
+      - ./initialization:/docker-entrypoint-initdb.d/ # Place all initilization scripts in the folder initialization
     ports:
       - "5432:5432" # Map host port 5432 to container port 5432
     healthcheck:
