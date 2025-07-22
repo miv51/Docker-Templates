@@ -4,7 +4,7 @@ FROM alpine:latest
 # Update the apk package manager
 RUN apk update
 
-# Copy the script used to setup the virtual environment
+# Copy the script used to setup the cpp environment
 COPY setup_cpp_env.sh /tmp
 
 # Give this file permission to be executed
