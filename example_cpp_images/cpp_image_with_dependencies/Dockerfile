@@ -1,5 +1,5 @@
 # Use the base python image
 FROM base_cpp_image:latest
 
-# Run the script to install python packages
-RUN /bin/sh /tmp/install_python_packages.sh venv /app
+# Install additional dependencies for your application
+RUN apk add --no-cache openssl-dev
