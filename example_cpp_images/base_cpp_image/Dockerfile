@@ -5,10 +5,10 @@ FROM alpine:latest
 RUN apk update
 
 # Copy the script used to setup the virtual environment
-COPY setup_virtual_cpp_env.sh /tmp
+COPY setup_cpp_env.sh /tmp
 
 # Give this file permission to be executed
-RUN chmod +x /tmp/setup_virtual_cpp_env.sh
+RUN chmod +x /tmp/setup_cpp_env.sh
 
 # Run the script to setup the environment
-RUN /bin/sh /tmp/setup_virtual_cpp_env.sh venv /app
+RUN /bin/sh /tmp/setup_cpp_env.sh venv /app
