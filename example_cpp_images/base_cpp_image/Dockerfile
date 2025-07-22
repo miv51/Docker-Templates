@@ -11,4 +11,4 @@ COPY setup_cpp_env.sh /tmp
 RUN chmod +x /tmp/setup_cpp_env.sh
 
 # Run the script to setup the environment
-RUN /bin/sh /tmp/setup_cpp_env.sh venv /app
+RUN /bin/sh /tmp/setup_cpp_env.sh
