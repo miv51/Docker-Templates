@@ -1,5 +1,5 @@
 # Use the base alpine image
-FROM alpine:latest
+FROM alpine:3.20
 
 # Update the apk package manager
 RUN apk update
