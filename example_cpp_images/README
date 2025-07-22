@@ -1,0 +1,3 @@
+base_cpp_image : contains a fresh installation of python with most of the tools needed to install other python packages
+cpp_image_with_dependencies : shows how to install packages on the base_cpp_image to create a new image
+cpp_application_image : shows how to create an executable using the cpp_image_with_dependencies
