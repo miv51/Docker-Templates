@@ -7,7 +7,7 @@ WORKDIR /app
 # copy files into /app in the container
 COPY hello.cpp /app
 
-# for a application this simple, we don't need to use cmake
+# for an application this simple, we don't need to use cmake
 RUN g++ hello.cpp -o hello_app -lssl -lcrypto
 
 # Define the command to run when the container is started
