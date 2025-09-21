@@ -13,6 +13,7 @@ services:
       - ./initialization:/docker-entrypoint-initdb.d/ # Place all initilization scripts in the folder initialization
       - ./config/postgresql.conf:/etc/postgresql/postgresql.conf # cannot use - ./config:/etc/postgresql/ otherwise the whole directory will be overridden
       - ./config/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf -c hba_file=/etc/postgresql/pg_hba.conf # Explicitly tell Postgres to use the mounted config files.
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U root_user -d database"] # -U POSTGRES_USER -d POSTGRES_DB
       interval: 5s
