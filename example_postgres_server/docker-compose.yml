@@ -11,7 +11,8 @@ services:
     volumes:
       - database_volume:/var/lib/postgresql/data # Mount the named volume
       - ./initialization:/docker-entrypoint-initdb.d/ # Place all initilization scripts in the folder initialization
-      - ./config:/etc/postgresql/ # Place all configuration files in the folder config
+      - ./config/postgresql.conf:/etc/postgresql/postgresql.conf # cannot use - ./config:/etc/postgresql/ otherwise the whole directory will be overridden
+      - ./config/pg_hba.conf:/etc/postgresql/pg_hba.conf
     ports:
       - "5432:5432" # Map host port 5432 to container port 5432
     healthcheck:
