@@ -20,19 +20,27 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped # Always restart unless explicitly stopped
-
+    networks:
+      - secure_application_network # Name of the network that this container will connect to
+      
   application_service: # the name of the service that will interact with the database
     image: alpine:latest
     container_name: application_container
     environment:
       DB_HOST: database_service
-      DB_USER: application_user
+      DB_USER: application_service # name of the user for the application service
       DB_PASSWORD: ${APP_PASSWORD}
       DB_NAME: database # the name of the database that the application service will interact with
     depends_on:
       - database_service
     ports:
       - "80:80"
+    networks:
+      - secure_application_network # Name of the network that this container will connect to
       
 volumes:
   database_volume: # Define the volume name
+  
+networks: # Define networks that the containers can communicate across
+  secure_application_network: # Name of the network
+    driver: bridge # use the default networking driver to create a private, isolated network for our containers
